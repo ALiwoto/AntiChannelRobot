@@ -1,4 +1,4 @@
-module github.com/ALiwoto/AntiChannelRobot
+module github.com/ALiwoto/DisableChannelRobot
 
 go 1.16
 

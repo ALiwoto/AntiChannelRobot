@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ALiwoto/AntiChannelRobot/antiChannelRobot/core/logging"
-	"github.com/ALiwoto/AntiChannelRobot/antiChannelRobot/core/wotoConfig"
+	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/logging"
+	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/wotoConfig"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )

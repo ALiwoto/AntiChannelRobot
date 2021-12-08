@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/ALiwoto/AntiChannelRobot/antiChannelRobot/core/logging"
-	"github.com/ALiwoto/AntiChannelRobot/antiChannelRobot/core/wotoConfig"
-	"github.com/ALiwoto/AntiChannelRobot/antiChannelRobot/plugins"
+	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/logging"
+	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/wotoConfig"
+	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/plugins"
 )
 
 func main() {
