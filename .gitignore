@@ -1,15 +1,36 @@
-# Binaries for programs and plugins
+.env
+.docker_build/
+bin/
 *.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+vendor/
+sibylBinary
+botBinary
+PsychoPass
+sibylSystem
+*.old.go
+woto_files/
+tmp_files/
+labs/
+*.old.go
+*.log
 
-# Test binary, built with `go test -c`
-*.test
+# ignore db files
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sqlite.db
+*.sqlite.db-journal
+*.sqlite.sqlite
+*.sqlite.sqlite-journal
+*.sqlite.sqlite3
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# ignore debug binary file
+__debug_bin
+
+# ignore config file
+config.ini
+config.json
+*.token
+triggers.json
