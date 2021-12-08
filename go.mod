@@ -1,4 +1,4 @@
-module github.com/ALiwoto/DisableChannelRobot
+module github.com/AnimeKaizoku/DisableChannelRobot
 
 go 1.16
 

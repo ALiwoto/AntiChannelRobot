@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/logging"
-	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/wotoConfig"
-	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/plugins"
+	"github.com/AnimeKaizoku/DisableChannelRobot/DisableChannelRobot/core/logging"
+	"github.com/AnimeKaizoku/DisableChannelRobot/DisableChannelRobot/core/wotoConfig"
+	"github.com/AnimeKaizoku/DisableChannelRobot/DisableChannelRobot/plugins"
 )
 
 func main() {
