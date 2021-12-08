@@ -29,7 +29,7 @@ func StartTelegramBot() error {
 	utmp := ext.NewUpdater(nil)
 	updater := &utmp
 	err = updater.StartPolling(b, &ext.PollingOpts{
-		DropPendingUpdates: true,
+		DropPendingUpdates: false,
 	})
 	if err != nil {
 		return err
