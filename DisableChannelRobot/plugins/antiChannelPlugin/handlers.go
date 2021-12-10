@@ -18,6 +18,11 @@ func checkAntiChannel(bot *gotgbot.Bot, ctx *ext.Context) error {
 }
 
 func antiChannelFilter(msg *gotgbot.Message) bool {
+	if msg.From != nil {
+		if msg.From.Id == 1087968824 {
+			return false
+		}
+	}
 	return msg.SenderChat != nil &&
 		!msg.IsAutomaticForward
 }
