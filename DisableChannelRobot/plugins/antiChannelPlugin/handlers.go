@@ -11,7 +11,7 @@ func checkAntiChannel(bot *gotgbot.Bot, ctx *ext.Context) error {
 	chat := ctx.EffectiveChat
 
 	_, _ = bot.DeleteMessage(chat.Id, message.MessageId)
-	_, _ = bot.BanChatSenderChat(chat.Id, senderChat.Id, nil)
+	_, _ = bot.BanChatSenderChat(chat.Id, senderChat.Id)
 
 	// don't let another handlers to be executed
 	return ext.EndGroups
@@ -23,6 +23,5 @@ func antiChannelFilter(msg *gotgbot.Message) bool {
 			return false
 		}
 	}
-	return msg.SenderChat != nil &&
-		!msg.IsAutomaticForward
+	return msg.SenderChat != nil && !msg.IsAutomaticForward
 }
