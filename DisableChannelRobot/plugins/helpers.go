@@ -3,7 +3,6 @@ package plugins
 import (
 	"errors"
 	"fmt"
-	"net/http"
 
 	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/logging"
 	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/core/wotoConfig"
@@ -18,16 +17,19 @@ func StartTelegramBot() error {
 	}
 
 	b, err := gotgbot.NewBot(token, &gotgbot.BotOpts{
-		Client:      http.Client{},
-		GetTimeout:  2 * gotgbot.DefaultGetTimeout,
-		PostTimeout: 2 * gotgbot.DefaultPostTimeout,
+		RequestOpts: &gotgbot.RequestOpts{
+			Timeout: 6 * gotgbot.DefaultTimeout,
+		},
 	})
 	if err != nil {
 		return err
 	}
 
-	utmp := ext.NewUpdater(nil)
-	updater := &utmp
+	dispatcher := ext.NewDispatcher(&ext.DispatcherOpts{
+		MaxRoutines: MaxGoRoutines,
+	})
+
+	updater := ext.NewUpdater(dispatcher, &ext.UpdaterOpts{})
 	err = updater.StartPolling(b, &ext.PollingOpts{
 		DropPendingUpdates: false,
 	})
@@ -37,7 +39,7 @@ func StartTelegramBot() error {
 
 	logging.Info(fmt.Sprintf("%s has started | ID: %d", b.Username, b.Id))
 
-	LoadAllHandlers(updater.Dispatcher, wotoConfig.GetCmdPrefixes())
+	LoadAllHandlers(dispatcher, wotoConfig.GetCmdPrefixes())
 
 	updater.Idle()
 	return nil

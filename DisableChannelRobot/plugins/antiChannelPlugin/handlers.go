@@ -10,18 +10,14 @@ func checkAntiChannel(bot *gotgbot.Bot, ctx *ext.Context) error {
 	senderChat := message.SenderChat
 	chat := ctx.EffectiveChat
 
-	_, _ = bot.DeleteMessage(chat.Id, message.MessageId)
-	_, _ = bot.BanChatSenderChat(chat.Id, senderChat.Id)
+	_, _ = bot.DeleteMessage(chat.Id, message.MessageId, nil)
+	_, _ = bot.BanChatSenderChat(chat.Id, senderChat.Id, nil)
 
-	// don't let another handlers to be executed
+	// don't let another handlers get executed
 	return ext.EndGroups
 }
 
 func antiChannelFilter(msg *gotgbot.Message) bool {
-	if msg.From != nil {
-		if msg.From.Id == 1087968824 {
-			return false
-		}
-	}
-	return msg.SenderChat != nil && !msg.IsAutomaticForward
+	return msg.SenderChat != nil && !msg.IsAutomaticForward &&
+		msg.SenderChat.Id != msg.Chat.Id // anonymous admins are allowed
 }
