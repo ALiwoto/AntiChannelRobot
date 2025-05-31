@@ -1,7 +1,7 @@
 package plugins
 
 import (
-	"github.com/ALiwoto/DisableChannelRobot/DisableChannelRobot/plugins/antiChannelPlugin"
+	"github.com/ALiwoto/DisableChannelRobot/src/plugins/antiChannelPlugin"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )
 
